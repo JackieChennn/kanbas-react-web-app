@@ -56,6 +56,18 @@
       <li>Serve and enjoy!</li>
     </ol>
 
+    <h3>Unordered List Tag</h3>
+
+    <p>My favorite books (in no particular order)</p>
+
+    <ul>
+      <li>Dune</li>
+      <li>Lord of the Rings</li>
+      <li>Ender's Game</li>
+      <li>Red Mars</li>
+      <li>The Forever War</li>
+    </ul>
+
     <h2>Tables</h2>
 
     <h2>Table Tag</h2>
@@ -95,11 +107,20 @@
         </tr>
       </tfoot>
     </table>
+
     <h2>Images</h2>
     <img
       width="300px"
       src="https://www.cnet.com/a/img/resize/62e914e9a1fd8f2ccc27c9d70c95fb9c07c64970/hub/2022/08/10/46461580-0242-4d00-a347-7bdfdc828d8e/fzwzbv7veaal-kc.jpg?auto=webp&fit=crop&height=675&width=1200"
     />
+    <h2>Image tag</h2>
+
+    Loading an image from the internet:<br/>
+
+    <img width="400px"
+    src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"/>
+    <br/>
+
     <h2>Text fields</h2>
     <form id="text-fields" action="https://en.wikipedia.org/wiki/Main_Page">
       <label for="text-fields-username">Username:</label>
@@ -212,6 +233,34 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <option selected value="SCIFI">Science Fiction</option>
         <option value="FANTASY">Fantasy</option>
       </select>
+      <h2>Other HTML field types</h2>
+      <label for="text-fields-email"> Email: </label>
+      <input type="email"
+            placeholder="jdoe@somewhere.com"
+            id="text-fields-email"/><br/>
+      <label for="text-fields-salary-start"> Starting salary:
+      </label>
+      <input type="number"
+            id="text-fields-salary-start"
+            placeholder="1000"
+            value="100000"/><br/>
+      <label for="text-fields-rating"> Rating: </label>
+      <input type="range" id="text-fields-rating"
+            placeholder="Doe"
+            max="5"
+            value="4"/><br/>
+      <label for="text-fields-dob"> Date of birth: </label>
+      <input type="date"
+            id="text-fields-dob"
+            value="2000-01-21"/><br/>
     </form>
+  <a href="https://www.aa.com">American Airlines</a>
+  <h2>Anchor tag</h2>
+
+  Please
+  <a href="https://www.lipsum.com">click here</a>
+  to get dummy text<br/>
+
+  Checkout my <a href="other-page.html">other page</a>
   </body>
 </html>
