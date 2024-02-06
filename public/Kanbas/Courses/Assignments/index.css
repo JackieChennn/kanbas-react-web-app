@@ -1,0 +1,50 @@
+.h-100 .d-block {
+  width: 100%;
+}
+
+.ellipsis {
+  font-size: 10px;
+  color: grey;
+  position: relative;
+  left: 33px;
+}
+
+.wd-navigation i {
+  color: grey;
+  position: absolute;
+  left: 248px;
+}
+
+#assignments-page-header {
+  color: red;
+}
+
+#assignments-page-header .wd-a {
+  color: red;
+}
+
+.last-btn {
+  position: relative;
+  left: 23px;
+}
+
+#wd-student-view {
+  color: black;
+}
+
+.container-fluid .col-12 button {
+  color: black;
+}
+
+.assignment-module a {
+  color: black;
+}
+
+.assignment-item {
+  border-left-color: green;
+  border-left-width: 5px;
+}
+
+.assignment-item .wd-green {
+  color: green;
+}

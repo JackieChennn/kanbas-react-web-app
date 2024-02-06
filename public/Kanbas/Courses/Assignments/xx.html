@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/assignments.css">
+    <title>Assignments</title>
+</head>
+
+<body>
+    <div class="d-flex flex-row" id="wrapper">
+        <div id="sidebar-wrapper">
+            <!-- Sidebar reference: https://getbootstrap.com/docs/5.0/examples/sidebars/ -->
+            <!-- Sticking sidebar to left of screen: https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/dist/index.html -->
+            <div class="d-flex flex-column align-items-center justify-content-center flex-grow-1 text-white bg-dark m-0"
+                id="kanbas-navbar">
+                <a href="#" class="d-flex align-items-center mb-md-0 text-white text-decoration-none">
+                    <img width="85" height="85" src="../../images/NU_RGB_Notched-N_motto_RW.png"
+                        alt="Northeastern University Logo">
+                </a>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="../../profile/index.html" class="nav-link" aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span id="account-icon">
+                                    <i class="fa-regular fa-circle-user fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">Account</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../dashboard/index.html" class="nav-link" aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span>
+                                    <i class="fa-solid fa-gauge-high fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">Dashboard</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../courses/index.html" class="nav-link active"
+                            aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span>
+                                    <i class="fa-solid fa-book fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">Courses</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span>
+                                    <i class="fa-regular fa-calendar-days fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">Calendar</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span>
+                                    <i class="fa-solid fa-inbox fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">Inbox</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span>
+                                    <i class="fa-regular fa-clock fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">History</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span>
+                                    <i class="fa-solid fa-desktop fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">Studio</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span>
+                                    <i class="fa-solid fa-right-from-bracket fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">Commons</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" aria-current="Navigate to account page">
+                            <div class="d-flex flex-column align-items-center">
+                                <span>
+                                    <i class="fa-regular fa-circle-question fa-2x"></i>
+                                </span>
+                                <div class="kanbas-navbar-item-text">Help</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+        <div class="page-content-wrapper container-fluid flex-grow-1">
+            <div id="assignments-page-header" class="d-flex flex-row align-items-center">
+                <i class="fa-solid fa-bars fa-1x me-3 bars-red" id="assignments-page-header-icon"></i>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="#">CS4550.12631.202410</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Assignments</li>
+                    </ol>
+                </nav>
+                <div class="ms-auto float-end">
+                    <a href="" class="btn btn-secondary">
+                        <i class="fa-solid fa-glasses me-1"></i>
+                        Student View
+                    </a>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-row">
+                <div class="d-flex flex-column secondary-sidebar" id="assignments-sidebar">
+                    <span id="assignments-sidebar-title" class="ellipsis mb-2">
+                        202410_1 Fall 2023 Semester
+                    </span>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="#" ">Modules</a></li>
+                        <li><a href=" #">Piazza</a></li>
+                        <li><a href="#">Zoom Meetings</a></li>
+                        <li class="selected"><a href="#">Assignments</a></li>
+                        <li><a href="#">Quizzes</a></li>
+                        <li><a href="../grades/grades.html">Grades</a></li>
+                        <li><a href="#">People</a></li>
+                        <li><a href="#">Panopto Video</a></li>
+                        <li><a href="#">Discussions</a></li>
+                        <li><a href="#">Announcements</a></li>
+                        <li><a href="#">Pages</a></li>
+                        <li><a href="#">Files</a></li>
+                        <li><a href="#">Rubrics</a></li>
+                        <li><a href="#">Outcomes</a></li>
+                        <li><a href="#">Collaborations</a></li>
+                        <li><a href="#">Syllabus</a></li>
+                        <li><a href="#">Progress Reports (EAB Navigate)</a></li>
+                        <li><a href="../settings/index.html">Settings</a></li>
+                    </ul>
+                </div>
+
+                <div class="container-fluid d-flex flex-row me-3">
+                    <div class="col-12 d-flex flex-column mx-4" id="courses-content-container">
+                        <div class="d-flex mb-1 justify-content-between" id="assignments-top-buttons">
+                            <div>
+                                <input type="text" class="form-control" placeholder="Search for Assignment">
+                            </div>
+                            <div>
+                                <button class="btn btn-secondary me-1 ellipsis" type="button">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                    Group
+                                </button>
+                                <button class="btn btn-danger me-1 ellipsis" type="button">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                    Assignment
+                                </button>
+                                <button class="btn btn-secondary me-1" type="button">
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="list-group p-0 mb-5 rounded-0 assignment-module">
+                            <div href="#"
+                                class="d-flex list-group-item list-group-item-secondary module-title border-start-1 border-top-1 border-end-1 border-bottom-0">
+                                <div class="d-flex align-items-center two-ellipsis">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                <div class="ms-2 me-auto">
+                                    <a href="#">Assignments</a>
+                                </div>
+                                <div class="d-flex align-items-center title-icons">
+                                    <div class="rounded-pill border border-dark-subtle me-3">
+                                        <span class="mx-3 ">40% of Total</span>
+                                    </div>
+                                    <i class="fa fa-plus me-3" aria-hidden="true"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+
+                            <div href="#" class="d-flex align-items-center list-group-item assignment-item finished">
+                                <div class="d-flex align-items-center two-ellipsis">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                <div class="ms-3 assignment-item-icon">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </div>
+                                <div class="d-flex flex-column ms-3 me-auto">
+                                    <div class="assignment-item-title">
+                                        <a href="../assignments/edit.html">
+                                            A1 SETUP
+                                        </a>
+                                    </div>
+                                    <div class="assignment-item-detail">
+                                        Week 0 - SETUP - Week starting on Monday September 5th (9/5/2022) Module |
+                                    </div>
+                                    <div class="assignment-item-due-date">
+                                        <strong>Due</strong> Sep 18, 2022 at 11:59pm | 100 pts
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center float-end">
+                                    <i class="fa fa-check-circle me-3" aria-hidden="true"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                            <div href="#" class="d-flex align-items-center list-group-item assignment-item finished">
+                                <div class="d-flex align-items-center two-ellipsis">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                <div class="ms-3 assignment-item-icon">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </div>
+                                <div class="d-flex flex-column ms-3 me-auto">
+                                    <div class="assignment-item-title">
+                                        <a href="../assignments/edit.html">
+                                            A2 HTML
+                                        </a>
+                                    </div>
+                                    <div class="assignment-item-detail">
+                                        Week 1 - HTML - Week starting on Monday September 12th (9/12/2022) Module |
+                                    </div>
+                                    <div class="assignment-item-due-date">
+                                        <strong>Due</strong> Sep 25, 2022 at 11:59pm | 100 pts
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center float-end">
+                                    <i class="fa fa-check-circle me-3" aria-hidden="true"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                            <div href="#" class="d-flex align-items-center list-group-item assignment-item finished">
+                                <div class="d-flex align-items-center two-ellipsis">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                <div class="ms-3 assignment-item-icon">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </div>
+                                <div class="d-flex flex-column ms-3 me-auto">
+                                    <div class="assignment-item-title">
+                                        <a href="../assignments/edit.html">
+                                            A3 CSS
+                                        </a>
+                                    </div>
+                                    <div class="assignment-item-detail">
+                                        Week 2 - CSS - Week starting on Monday September 19th (9/19/2022) Module |
+                                    </div>
+                                    <div class="assignment-item-due-date">
+                                        <strong>Due</strong> Oct 2, 2022 at 11:59pm | 100 pts
+                                    </div>
+
+                                </div>
+                                <div class="d-flex align-items-center float-end">
+                                    <i class="fa fa-check-circle me-3" aria-hidden="true"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                            <div href="#" class="d-flex align-items-center list-group-item assignment-item finished">
+                                <div class="d-flex align-items-center two-ellipsis">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                <div class="ms-3 assignment-item-icon">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </div>
+                                <div class="d-flex flex-column ms-3 me-auto">
+                                    <div class="assignment-item-title">
+                                        <a href="../assignments/edit.html">
+                                            A4 BOOTSTRAP
+                                        </a>
+                                    </div>
+                                    <div class="assignment-item-detail">
+                                        Week 3 - Bootstrap - Week starting on Monday September 26th (9/26/2022) Module |
+                                    </div>
+                                    <div class="assignment-item-due-date">
+                                        <strong>Due</strong> Oct 10, 2022 at 11:59pm | 100 pts
+                                    </div>
+
+                                </div>
+                                <div class="d-flex align-items-center float-end">
+                                    <i class="fa fa-check-circle me-3" aria-hidden="true"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                            <div href="#" class="d-flex align-items-center list-group-item assignment-item finished">
+                                <div class="d-flex align-items-center two-ellipsis">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                <div class="ms-3 assignment-item-icon">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </div>
+                                <div class="d-flex flex-column ms-3 me-auto">
+                                    <div class="assignment-item-title">
+                                        <a href="../assignments/edit.html">
+                                            A5 JAVASCRIPT
+                                        </a>
+                                    </div>
+                                    <div class="assignment-item-detail">
+                                        Week 4 - Javascript - Week starting on Monday October 3rd (10/3/2022) Module |
+                                    </div>
+                                    <div class="assignment-item-due-date">
+                                        <strong>Due</strong> Oct 16, 2022 at 11:59pm | 100 pts
+                                    </div>
+
+                                </div>
+                                <div class="d-flex align-items-center float-end">
+                                    <i class="fa fa-check-circle me-3" aria-hidden="true"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                            <div href="#" class="d-flex align-items-center list-group-item assignment-item finished">
+                                <div class="d-flex align-items-center two-ellipsis">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                <div class="ms-3 assignment-item-icon">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </div>
+                                <div class="d-flex flex-column ms-3 me-auto">
+                                    <div class="assignment-item-title">
+                                        <a href="../assignments/edit.html">
+                                            A6 REACT
+                                        </a>
+                                    </div>
+                                    <div class="assignment-item-detail">
+                                        Week 5 - React & Routing - Week starting on Monday October 10th (10/10/2022)
+                                        Module |
+                                    </div>
+                                    <div class="assignment-item-due-date">
+                                        <strong>Due</strong> Oct 23, 2022 at 11:59pm | 100 pts
+                                    </div>
+
+                                </div>
+                                <div class="d-flex align-items-center float-end">
+                                    <i class="fa fa-check-circle me-3" aria-hidden="true"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d86fba7c7b.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
