@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/Kanbas/styles.css"/>
   <link rel="stylesheet" href="/Kanbas/Navigation/index.css"/>
   <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css"/>
+  <link rel="stylesheet" href="/Kanbas/Courses/Assignments/Editor/index.css"/>
 </head>
 <body>
 <form action="/Kanbas/Courses/Assignments/screen.html">
@@ -42,161 +43,201 @@
       </ul>
     </div>
     <div class="d-none d-md-block">
-    <ul class="wd-navigation">
-      <li>
-        <a href="/Kanbas/Courses/Home/screen.html"> Home</a>
-      </li>
-      <li><a href="#"> Modules</a></li>
-      <li><a href="#"> Piazza</a></li>
-      <li><a href="#"> Zoom Meetings</a></li>
-      <li class="wd-active">
-        <a href="/Kanbas/Courses/Assignments/screen.html"> Assignments</a>
-      </li>
-      <li><a href="#"> Quizzes</a></li>
-      <li><a href="/Kanbas/Courses/Grades/screen.html"> Grades</a></li>
-      <li><a href="#"> People</a></li>
-      <li><a href="#"> Panopto Video</a></li>
-      <li><a href="#"> Discussions</a></li>
-      <li><a href="#"> Announcements</a></li>
-      <li><a href="#"> Pages</a></li>
-      <li><a href="#"> Files</a></li>
-      <li><a href="#"> Rubrics</a></li>
-      <li><a href="#"> Outcomes</a></li>
-      <li><a href="#"> Collaborations</a></li>
-      <li><a href="#"> Syllabus</a></li>
-    </ul>
-  </div>
-    <div>
-      <label for="wd-assignment-name">Assignment</label><br/>
-      <input
-          class="form-control"
-          value="A1"
-          id="wd-assignment-name"
-      /><br/>
-      <textarea class="form-control">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus rerum reprehenderit voluptatum neque eum repellendus ullam eos adipisci? Ratione id dicta quo natus earum dignissimos similique quam qui numquam exercitationem.</textarea
-      >
-      <table>
-        <tbody>
-        <tr>
-          <td>Points</td>
-          <td>
-            <input
-                class="form-control"
-                type="number"
-                value="100"
-                min="0"
-                max="100"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Assignment Group</td>
-          <td>
-            <select class="form-control">
-              <option>Group 1</option>
-              <option>Group 2</option>
-              <option>Group 3</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td valign="top">Submission Type</td>
-          <td>
-            <label>Online Entry Options</label><br/>
-            <input
-                type="checkbox"
-                name="wd-entry-options"
-                id="wd-text-entry"
-            />
-            <label for="wd-text-entry">Text Entry</label><br/>
-            <input
-                type="checkbox"
-                name="wd-entry-options"
-                id="wd-website-url"
-            />
-            <label for="wd-website-url">Website URL</label><br/>
-            <input
-                type="checkbox"
-                name="wd-entry-options"
-                id="wd-media-recordings"
-            />
-            <label for="wd-media-recordings">Media Recordings</label
-            ><br/>
-            <input
-                type="checkbox"
-                name="wd-entry-options"
-                id="wd-student-annotations"
-            />
-            <label for="wd-student-annotations"
-            >Student Annotations</label
-            ><br/>
-            <input
-                type="checkbox"
-                name="wd-entry-options"
-                id="wd-file-uploads"
-            />
-            <label for="wd-file-uploads">File Uploads</label><br/>
-          </td>
-        </tr>
-        <tr>
-          <td>Assign</td>
-          <td>
-            Due<br/>
-            <input
-                class="form-control"
-                name="wd-due-date"
-                type="date"
-                value="2021-01-01"
-            /><br/>
-            Available From<br/>
-            <input
-                class="form-control"
-                name="wd-available-from"
-                type="date"
-                value="2021-01-01"
-            /><br/>
-            Until<br/>
-            <input
-                class="form-control"
-                name="wd-available-until"
-                type="date"
-                value="2021-01-01"
-            /><br/>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        </tbody>
-      </table>
-      <button class="btn btn-success" type="submit">Save</button>
-      <button class="btn btn-danger">Cancel</button>
+    </div>
+    <div class="page-content-wrapper container-fluid">
+      <div id="assignments-page-header" class="d-flex flex-row align-items-center">
+        <i class="fa-solid fa-bars fa-1x me-3 wd-red" id="assignments-page-header-icon"></i>
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb m-0 flex-nowrap ellipsis">
+            <li class="breadcrumb-item ellipsis wd-red"><a href="#">CS5610.11744.202310</a></li>
+            <li class="breadcrumb-item ellipsis wd-red"><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a>
+            </li>
+            <li class="breadcrumb-item active ellipsis" aria-current="page">A1 - ENV + HTML</li>
+          </ol>
+        </nav>
+      </div>
+      <hr>
+      <div class="d-flex flex-row">
+        <div class="d-flex flex-column secondary-sidebar" id="assignments-sidebar">
+          <span id="assignments-sidebar-title" class="ellipsis mb-2">
+            202430_2 Spring 2024 Semester
+          </span>
+          <ul class="wd-navigation">
+            <li>
+              <a href="/Kanbas/Courses/Home/screen.html"> Home</a>
+            </li>
+            <li><a href="#"> Modules</a></li>
+            <li><a href="#"> Piazza</a></li>
+            <li><a href="#"> Zoom Meetings</a></li>
+            <li class="wd-active">
+              <a href="/Kanbas/Courses/Assignments/screen.html"> Assignments</a>
+            </li>
+            <li><a href="#"> Quizzes</a></li>
+            <li><a href="/Kanbas/Courses/Grades/screen.html"> Grades</a></li>
+            <li><a href="#"> People</a></li>
+            <li><a href="#"> Panopto Video</a></li>
+            <li><a href="#"> Discussions</a></li>
+            <li><a href="#"> Announcements</a></li>
+            <li><a href="#"> Pages</a></li>
+            <li><a href="#"> Files</a></li>
+            <li><a href="#"> Rubrics</a></li>
+            <li><a href="#"> Outcomes</a></li>
+            <li><a href="#"> Collaborations</a></li>
+            <li><a href="#"> Syllabus</a></li>
+          </ul>
+        </div>
+        <div class="container-fluid d-flex flex-column mx-4" id="courses-content-container">
+          <div class="d-flex flex-row align-items-center ms-auto" id="assignments-top-buttons">
+            <div class="me-4">
+              <i class="fa fa-check-circle me-1" aria-hidden="true"></i>
+              Published
+            </div>
+            <button class="btn btn-secondary me-1" type="button">
+              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+            </button>
+          </div>
+          <hr>
+          <form action="../assignments/index.html" class="mb-3">
+            <div class="mb-3  align-items-center" id="assignment-name-container">
+              <label for="assignment-name" class="form-label">
+                Assignment Name
+              </label>
+              <input type="text" class="form-control" id="assignment-name"
+                     aria-describedby="assignment name" value="A1 - ENV + HTML">
+            </div>
+            <div class="mb-3 align-items-center" id="assignment-description-container">
+                            <textarea name="assignment-description" id="assignment-description"
+                                      cols="30" rows="5"
+                                      class="form-control">This assignment describes how to install the development environment for creating and working with Web applications we will be developing this semester. We will add new content every week, pushing the code to GitHub source repository, and then deploying the content to a remote server hosted on Netlify.
+                            </textarea>
+            </div>
+            <div class="row mb-3  align-items-center" id="assignment-points-container">
+              <label for="assignment-points" class="col-4 col-form-label text-end">Points</label>
+              <div class="col-6">
+                <input type="text" class="form-control" id="assignment-points">
+              </div>
+              <div class="col"></div>
+            </div>
+            <div class="row mb-3 align-items-center" id="assignment-group-container">
+              <label for="assignment-group" class="col-4 col-form-label text-end">Assignment
+                Group</label>
+              <div class="col-6">
+                <select class="form-select" aria-label="Assignment Group Select"
+                        id="assignment-group">
+                  <option selected>ASSIGNMENT</option>
+                  <option value="1">other option</option>
+                </select>
+              </div>
+              <div class="col"></div>
+            </div>
+            <div class="row mb-3 align-items-center" id="assignment-display-grade-container">
+              <label for="assignment-display-grade" class="col-4 col-form-label text-end">Display
+                Grade
+                As</label>
+              <div class="col-6">
+                <select class="form-select" aria-label="Assignment Group Select"
+                        id="assignment-display-grade">
+                  <option selected>Percentage</option>
+                  <option value="1">other option</option>
+                </select>
+              </div>
+              <div class="col"></div>
+            </div>
+            <div class="row mb-3" id="assignment-count-toward-final-container">
+              <div class="col-4"></div>
+              <div class="col-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value=""
+                         id="assignment-count-toward-final">
+                  <label class="form-check-label" for="assignment-count-toward-final">
+                    Do not count this assignment towards the final grade
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3" id="assignment-assign-container">
+              <div class="col-4 col-form-label text-end">
+                Assign
+              </div>
+              <div class="col-6">
+                <div class="border rounded-top p-4" id="assignment-assign-box">
+                  <div class="row mb-3">
+                    <div>
+                      <label for="assign-to" class="form-label ellipsis">
+                        <h6>Assign to</h6>
+                      </label>
+                      <input type="text" class="form-control" name="assign-to" id="assign-to"
+                             value="Everyone">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="due" class="form-label ellipsis">
+                      <h6>Due</h6>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="due" id="due"
+                             value="Feb 5, 2024, 11:59 PM">
+                      <span class="input-group-text" id="due-icon">
+                                                <i class="fa-regular fa-calendar-days"></i>
+                                            </span>
+                    </div>
+                  </div>
+                  <div class="row" id="available-from-until-container">
+                    <div class="col">
+                      <label for="available-from" class="form-label ellipsis">
+                        <h6>Available From</h6>
+                      </label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" name="available-from"
+                               id="available-from" value="Sep 6, 2023, 12:00 AM">
+                        <span class="input-group-text" id="from-icon">
+                                                    <i class="fa-regular fa-calendar-days"></i>
+                                                </span>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <label for="available-until" class="form-label ellipsis">
+                        <h6>Until</h6>
+                      </label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="available-until"
+                               name="available-until" value="">
+                        <span class="input-group-text" id="until-icon">
+                                                    <i class="fa-regular fa-calendar-days"></i>
+                                                </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                    class="border rounded-bottom border-top-0 border-dotted d-flex justify-content-center align-items-center p-1 bg-light">
+                  <a href="#" class="link-no-decoration">
+                    <i class="fa-solid fa-plus me-1"></i>
+                    Add</a>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-row" id="assignment-form-buttons-container">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value=""
+                       id="notify-user-content-change">
+                <label class="form-check-label" for="notify-user-content-change">
+                  Notify users that this content has changed
+                </label>
+              </div>
+              <div class="ms-auto">
+                <button class="btn btn-secondary me-1">
+                  Cancel
+                </button>
+                <button class="btn btn-danger me-1">
+                  Save
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </form>
