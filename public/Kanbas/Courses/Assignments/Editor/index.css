@@ -1,0 +1,18 @@
+#assignments-sidebar-title {
+  font-size: 10px;
+  color: grey;
+  position: relative;
+  left: 33px;
+}
+
+#assignments-page-header .wd-red {
+  color: red;
+}
+
+#assignments-page-header a {
+  color: red;
+}
+
+#assignments-top-buttons .me-4 {
+  color: green;
+}

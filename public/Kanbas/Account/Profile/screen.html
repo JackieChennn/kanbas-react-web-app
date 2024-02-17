@@ -2,65 +2,83 @@
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
+  <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css"
+        rel="stylesheet"/>
+  <link rel="stylesheet" href="/Kanbas/styles.css"/>
+  <link rel="stylesheet" href="/Kanbas/Navigation/index.css"/>
 </head>
 <body>
-<table width="100%">
-  <tbody>
-  <tr valign="top">
-    <td>
-      <ul>
-        <li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#">Inbox</a></li>
-        <li><a href="#">History</a></li>
-        <li><a href="#">Studio</a></li>
-        <li><a href="#">Commons</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li><a href="#">Notifications</a></li>
-        <li><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
-        <li><a href="#">Files</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">ePorfolios</a></li>
-        <li><a href="#">Shared Content</a></li>
-        <li><a href="#">The Hub</a></li>
-        <li><a href="#">Qwickly Course Tools</a></li>
-        <li><a href="#">Global Announcements</a></li>
-      </ul>
-    </td>
-    <td><h5>Jiacheng Chen's Profile</h5>
-      <hr>
-      <br/>
-      <table width="100%">
-        <tbody>
-        <tr valign="top">
-          <td>
-            <h2>Jiacheng (Jackie) Chen</h2>
-            <h3>Contact</h3>
-            No registered services, you can add some on the settings page.
-            <h3>Biography</h3>
-            2nd year Align MSCS student @ NEU | SDE Intern @ Loblaw Digital
-            <h3>Links</h3>
-            <a href="https://github.com/JackieChennn">GitHub</a><br/>
-            <a href="https://www.linkedin.com/in/jackie-chen77/">LinkedIn</a><br/>
-            <a href="https://leetcode.com/vvppoooo/">LeetCode</a><br/>
-          </td>
-          <td>
-            <a href="/Kanbas/Account/Profile/Edit/screen.html">
-              <button type="button">Edit Profile</button>
-            </a>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="d-flex h-100">
+  <div>
+    <ul class="wd-kanbas-navigation">
+      <li><a href="http://northeastern.edu"><img
+          src="/images/neu_icon.png"/></a></li>
+      <li class="wd-active"><a href="/Kanbas/Account/Profile/screen.html">
+        <i class="fa fa-circle-user"></i>Account</a>
+      </li>
+      <li>
+        <a href="/Kanbas/Dashboard/screen.html">
+          <i class="fa fa-gauge-high"></i> Dashboard</a>
+      </li>
+      <li>
+        <a href="/Kanbas/Courses/Home/screen.html">
+          <i class="fa fa-book"></i>Courses</a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
+      </li>
+      <li><a href="#">
+        <i class="fa fa-inbox"></i>Inbox</a></li>
+      <li><a href="#">
+        <i class="fa fa-clock"></i>History</a></li>
+      <li><a href="#">
+        <i class="fa fa-desktop"></i>Studio</a></li>
+      <li><a href="#">
+        <i class="fa fa-share-from-square"></i>Commons</a></li>
+      <li><a href="#">
+        <i class="fa fa-circle-question"></i>Help</a></li>
+    </ul>
+  </div>
+  <div>
+    <ul>
+      <li><a href="#">Notifications</a></li>
+      <li><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
+      <li><a href="#">Files</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">ePorfolios</a></li>
+      <li><a href="#">Shared Content</a></li>
+      <li><a href="#">The Hub</a></li>
+      <li><a href="#">Qwickly Course Tools</a></li>
+      <li><a href="#">Global Announcements</a></li>
+    </ul>
+  </div>
+  <div><h5>Jiacheng Chen's Profile</h5>
+    <hr>
+    <br/>
+    <table width="100%">
+      <tbody>
+      <tr valign="top">
+        <td>
+          <h2>Jiacheng (Jackie) Chen</h2>
+          <h3>Contact</h3>
+          No registered services, you can add some on the settings page.
+          <h3>Biography</h3>
+          2nd year Align MSCS student @ NEU | SDE Intern @ Loblaw Digital
+          <h3>Links</h3>
+          <a href="https://github.com/JackieChennn">GitHub</a><br/>
+          <a href="https://www.linkedin.com/in/jackie-chen77/">LinkedIn</a><br/>
+          <a href="https://leetcode.com/vvppoooo/">LeetCode</a><br/>
+        </td>
+        <td>
+          <a href="/Kanbas/Account/Profile/Edit/screen.html">
+            <button type="button">Edit Profile</button>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </body>
 </html>
