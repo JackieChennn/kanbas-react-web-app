@@ -3,6 +3,7 @@ import {Routes, Route, Navigate} from "react-router-dom";
 import CourseNavigation from "./Navigation/CourseNavigation";
 import CourseTopNavigation from "./Navigation/CourseTopNavigation";
 import Modules from "./Modules";
+import Home from "./Home";
 
 function Courses() {
   return (
@@ -20,7 +21,7 @@ function Courses() {
           >
             <Routes>
               <Route path="/" element={<Navigate to="Home"/>}/>
-              <Route path="Home" element={<h1>Home</h1>}/>
+              <Route path="Home" element={<Home/>}/>
               <Route path="Modules" element={<Modules/>}/>
               <Route path="Assignments" element={<h1>Assignments</h1>}/>
               <Route
