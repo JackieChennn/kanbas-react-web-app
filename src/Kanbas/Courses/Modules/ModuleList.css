@@ -1,9 +1,9 @@
 .wd-modules,
 .wd-modules * {
-  border-radius: 0%;
+  border-radius: 0;
   border: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .wd-modules {
