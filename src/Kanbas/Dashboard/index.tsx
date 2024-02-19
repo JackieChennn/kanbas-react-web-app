@@ -1,50 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import courses from "../Database/courses.json";
+import CourseCard from "./CourseCard";
+import db from "../Database";
+import "./index.css";
 
 function Dashboard() {
+  const courses = db.courses;
   return (
-    <div className="p-4">
-      <h1>Dashboard</h1>
-      <hr />
-      <h2>Published Courses (12)</h2>
-      <hr />
-      <div className="row">
-        <div className="row row-cols-1 row-cols-md-5 g-4">
-          {courses.map((course) => (
-            <div className="col" style={{ width: "300px" }}>
-              <div className="card">
-                <img
-                  src="/images/reactjs.png"
-                  className="card-img-top"
-                  style={{ maxHeight: "150px" }}
-                />
-                <div className="card-body">
-                  <Link
-                    className="card-title"
-                    to={`/Kanbas/Courses/${course._id}`}
-                    style={{
-                      textDecoration: "none",
-                      color: "navy",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {course.name}
-                  </Link>
-                  <p className="card-text">Full Stack software developer</p>
-                  <Link to={"#"} className="btn btn-primary">
-                    Go
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
+      <div className="mx-xs-1 mx-md-2 mx-lg-3 flex-grow-1">
+        <h1>Dashboard</h1>
+        <hr/>
+        <div className="ms-md-3">
+          <h2>Published Courses ({courses.length})</h2>
+          <hr/>
+          <div
+              className="d-flex flex-row flex-wrap row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-start"
+              id="wd-course-cards-container">
+            {courses.map((course) => {
+                  return (
+                      <CourseCard course={course}/>
+                  )
+                }
+            )}
+          </div>
         </div>
+
       </div>
-      <pre>
-        <code>{JSON.stringify(courses, null, 2)}</code>
-      </pre>
-    </div>
   );
 }
 

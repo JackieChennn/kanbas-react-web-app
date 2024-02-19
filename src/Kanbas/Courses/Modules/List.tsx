@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./index.css";
-import { modules } from "../../Database";
+import db from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
 function ModuleList() {
+  const modules = db.modules
   const { cid } = useParams();
   const modulesList = modules.filter((module) => module.course === cid);
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
