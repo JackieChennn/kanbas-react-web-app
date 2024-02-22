@@ -167,7 +167,7 @@ function AssignmentEditor() {
               </Link>
               <Link to={`/Kanbas/Courses/${cid}/Assignments`}
                     className="btn btn-danger me-2">
-                Cancel
+                Save
               </Link>
             </div>
           </div>
