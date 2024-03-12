@@ -1,0 +1,10 @@
+.wd-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.wd-link-red {
+    text-decoration: none;
+    color: red;
+}

@@ -1,0 +1,21 @@
+.wd-course-navigation {
+    margin-left: 25px;
+    max-width: 150px;
+}
+
+.wd-course-navigation .list-group {
+    border-radius: 0 !important;
+}
+
+.wd-course-navigation-item {
+    border: 0 !important;
+    color: red !important;
+}
+
+/* Selected course navigation item */
+.wd-course-navigation-item.active {
+    margin-top: 0 !important;
+    color: black !important;
+    border-left: 3px solid black !important;
+    padding-left: 13px !important;
+}

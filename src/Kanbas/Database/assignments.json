@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "A101",
+    "title": "Rocket Propulsion Quiz",
+    "course": "RS101",
+    "description": "Test your knowledge on the fundamental principles of rocket propulsion with this quiz."
+  },
+  {
+    "_id": "A102",
+    "title": "Fuel and Combustion Quiz",
+    "course": "RS101",
+    "description": "Explore the intricacies of rocket fuel and combustion processes in this insightful quiz."
+  },
+  {
+    "_id": "A103",
+    "title": "Nozzle Design Project",
+    "course": "RS101",
+    "description": "Embark on a hands-on project to design rocket nozzles, optimizing performance for specific applications."
+  },
+  {
+    "_id": "A201",
+    "title": "Aerodynamics Quiz",
+    "course": "RS102",
+    "description": "Dive into the world of aerodynamics with this quiz covering basic concepts and fluid dynamics principles."
+  },
+  {
+    "_id": "A202",
+    "title": "Subsonic and Supersonic Flow Quiz",
+    "course": "RS102",
+    "description": "Test your understanding of subsonic and supersonic aerodynamic behaviors in this engaging quiz."
+  },
+  {
+    "_id": "A203",
+    "title": "Aerodynamic Heating Quiz",
+    "course": "RS102",
+    "description": "Challenge yourself with questions on aerodynamic heating and thermal protection systems in this quiz."
+  },
+  {
+    "_id": "A301",
+    "title": "Spacecraft Structural Design Quiz",
+    "course": "RS103",
+    "description": "Assess your knowledge of spacecraft structural design fundamentals, including materials selection."
+  },
+  {
+    "_id": "A302",
+    "title": "Orbital Mechanics Quiz",
+    "course": "RS103",
+    "description": "Explore orbital dynamics and mission planning through questions designed to test your grasp of orbital mechanics."
+  },
+  {
+    "_id": "A303",
+    "title": "Spacecraft Systems Engineering Quiz",
+    "course": "RS103",
+    "description": "Test your understanding of spacecraft systems and subsystems engineering with this comprehensive quiz."
+  }
+]
