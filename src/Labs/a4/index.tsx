@@ -3,6 +3,7 @@ import ClickEvent from "./ClickEvent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
 import EventObject from "./EventObject";
+import Counter from "./Counter";
 
 const Assignment4 = () => {
   function sayHello() {
@@ -12,6 +13,7 @@ const Assignment4 = () => {
   return (
       <>
         <h1>Assignment 4</h1>
+        <Counter/>
         <EventObject/>
         <PassingFunctions theFunction={sayHello}/>
         <PassingDataOnEvent/>
