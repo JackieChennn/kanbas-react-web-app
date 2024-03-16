@@ -7,6 +7,7 @@ import Counter from "./Counter";
 import BooleanStateVariables from "./BooleanStateVariables";
 import StringStateVariables from "./StringStateVariables";
 import DateStateVariable from "./DateStateVariable";
+import ObjectStateVariable from "./ObjectStateVariable";
 
 const Assignment4 = () => {
   function sayHello() {
@@ -16,6 +17,7 @@ const Assignment4 = () => {
   return (
       <>
         <h1>Assignment 4</h1>
+        <ObjectStateVariable/>
         <DateStateVariable/>
         <StringStateVariables/>
         <BooleanStateVariables/>
