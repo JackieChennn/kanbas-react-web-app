@@ -1,41 +1,16 @@
 import CourseCard from "./CourseCard";
-import db from "../Database";
 import "./index.css";
-import {useState} from "react";
 import {Link} from "react-router-dom";
 
 function Dashboard(
-) {
-  const [courses, setCourses] = useState(db.courses);
-  const [course, setCourse] = useState({
-    _id: "0",
-    name: "New course",
-    number: "New Number",
-    startDate: "2023-09-10",
-    endDate: "2023-12-15",
-  });
-
-  const addNewCourse = () => {
-    setCourses([...courses, {...course, _id: new Date().getTime().toString()}]);
-  }
-
-   const deleteCourse = (courseId: string) => {
-    setCourses(courses.filter((course) => course._id !== courseId));
-  };
-
-
-  const updateCourse = () => {
-    setCourses(
-        courses.map((c) => {
-          if (c._id === course._id) {
-            return course;
-          } else {
-            return c
-          }
-        })
-    )
-  }
-
+    {
+      courses, course, setCourse, addNewCourse,
+      deleteCourse, updateCourse
+    }: {
+      courses: any[]; course: any; setCourse: (course: any) => void;
+      addNewCourse: () => void; deleteCourse: (course: any) => void;
+      updateCourse: () => void;
+    }) {
   return (
       <div className="mx-xs-1 mx-md-2 mx-lg-3 flex-grow-1">
         <h1>Dashboard</h1>
@@ -57,13 +32,13 @@ function Dashboard(
           <button onClick={updateCourse} className="btn btn-warning">
             Update
           </button>
-          <div className="d-flex flex-row flex-wrap row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-start"
+          <div
+              className="d-flex flex-row flex-wrap row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-start"
               id="wd-course-cards-container">
             {courses.map((course) => (
                 <Link key={course._id} to={`/Kanbas/Courses/${course._id}`}
                       className="list-group-item">
                   <CourseCard course={course}/>
-                  {course.name}
                   <button onClick={(e) => {
                     e.preventDefault();
                     deleteCourse(course._id)
