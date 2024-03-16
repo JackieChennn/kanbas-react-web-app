@@ -31,7 +31,7 @@ const CourseCard = ({
                   className="mb-2 card-link wd-card-link-no-decoration">
               <div className="wd-course-card-header-content-container">
                 <h6 className="card-title wd-ellipsis">
-                  {/*{course.name}*/}
+                  {course.name}
                 </h6>
                 <h5 className="card-subtitle mb-2 text-muted">{course.number}</h5>
                 <p className="card-text wd-ellipsis">
