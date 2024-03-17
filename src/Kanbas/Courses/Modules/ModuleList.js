@@ -10,7 +10,7 @@ import {
 } from "./modulesReducer";
 
 function ModuleList() {
-  const {courseId} = useParams();
+  const {cid} = useParams();
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
@@ -33,14 +33,14 @@ function ModuleList() {
                       className="btn btn-primary me-2">Update
               </button>
               <button className="btn btn-success my-2" onClick={() => dispatch(
-                  addModule({...module, course: courseId}))}>Add
+                  addModule({...module, course: cid}))}>Add
               </button>
             </div>
           </div>
         </li>
         {
           modules
-          .filter((module) => module.course === courseId)
+          .filter((module) => module.course === cid)
           .map((module, index) => (
               <li key={index}
                   className="list-group-item wd-module-list-item rounded-0 mb-5 border-1">
