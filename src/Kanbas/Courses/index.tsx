@@ -1,5 +1,4 @@
-import React from "react";
-import {Routes, Route, Navigate} from "react-router-dom";
+import {Routes, Route, Navigate, useParams} from "react-router-dom";
 import CourseNavigation from "./Navigation/CourseNavigation";
 import CourseTopNavigation from "./Navigation/CourseTopNavigation";
 import Modules from "./Modules";
@@ -8,7 +7,9 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 
-function Courses() {
+function Courses({courses}: { courses: any[]; }) {
+  const {courseId} = useParams();
+  const course = courses.find((course) => course._id === courseId);
   return (
       <div>
         <CourseTopNavigation/>
