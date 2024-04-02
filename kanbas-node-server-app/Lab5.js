@@ -1,3 +1,8 @@
+const assignment = {
+  id: 1, title: "NodeJS Assignment",
+  description: "Create a NodeJS server with ExpressJS",
+  due: "2021-10-10", completed: false, score: 0,
+};
 const Lab5 = (app) => {
   app.get("/a5/welcome", (req, res) => {
     res.send("Welcome to Assignment 5");
@@ -42,6 +47,9 @@ const Lab5 = (app) => {
         result = "Invalid operation";
     }
     res.send(result.toString());
+  });
+  app.get("/a5/assignment", (req, res) => {
+    res.json(assignment);
   });
 };
 export default Lab5;
