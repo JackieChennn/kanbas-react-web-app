@@ -1,21 +1,25 @@
-import {Routes, Route, Navigate, useParams} from "react-router-dom";
-import CourseNavigation from "./Navigation/CourseNavigation";
-import CourseTopNavigation from "./Navigation/CourseTopNavigation";
-import Modules from "./Modules";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { courses } from "../../Kanbas/Database";
+import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
+import CourseNavigation from "./Navigation";
 import Home from "./Home";
 import Assignments from "./Assignments";
-import AssignmentEditor from "./Assignments/AssignmentEditor";
+import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
-import {useState, useEffect} from "react";
-import axios from "axios";
+import CourseHeader from "./header";
+import Modules from "./Modules";
 
 function Courses() {
-  const {courseId} = useParams();
-  const COURSES_API = "http://localhost:4000/api/courses";
-  const [course, setCourse] = useState<any>({_id: ""});
+  const { courseId } = useParams();
+  const API_BASE = process.env.REACT_APP_API_BASE;
+  const {pathname} = useLocation();
+  console.log(pathname);
+  const COURSES_API = `${API_BASE}/api/courses`;
+  const [course, setCourse] = useState<any>({ _id: "" });
   const findCourseById = async (courseId?: string) => {
     const response = await axios.get(
-        `${COURSES_API}/${courseId}`
+      `${COURSES_API}/${courseId}`
     );
     setCourse(response.data);
   };
@@ -23,34 +27,31 @@ function Courses() {
     findCourseById(courseId);
   }, [courseId]);
   return (
-      <div>
-        <CourseTopNavigation/>
-        <hr className="mb-3 mx-3"/>
-        <div>
-          <CourseNavigation/>
-          <div
-              className="overflow-y-scroll position-fixed bottom-0 end-0"
-              style={{
-                left: "320px",
-                top: "70px",
-              }}
-          >
-            <Routes>
-              <Route path="/" element={<Navigate to="Home"/>}/>
-              <Route path="Home" element={<Home/>}/>
-              <Route path="Modules" element={<Modules/>}/>
-              <Route path="Assignments" element={<Assignments/>}/>
-              <Route
-                  path="Assignments/:assignmentId"
-                  element={<AssignmentEditor/>}
-              />
-              <Route path="Grades" element={<Grades/>}/>
-            </Routes>
-          </div>
+  <div>
+    <CourseHeader course_id={course?._id || ''} location={pathname} />
+    <div className="d-flex">
+      <CourseNavigation course_id={course?._id || ''}/>
+      <div className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Navigate to="Home" />} />
+            <Route path="Home" element={<Home/>} />
+            <Route path="Modules" element={<Modules/>} />
+            <Route path="Piazza" element={<h1>Piazza</h1>} />
+            <Route path="Zoom Meetings" element={<h1>Zoom Meetings</h1>} />
+            <Route path="Assignments" element={<Assignments/>} />
+            <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>} />
+            <Route path="Quizzes" element={<h1>Quizzes</h1>} />
+            <Route path="Grades" element={<Grades/>} />
+            <Route path="People" element={<h1>People</h1>} />
+            <Route path="Panapto Video" element={<h1>Panapto Video</h1>} />
+            <Route path="Discussions" element={<h1>Discussions</h1>} />
+            <Route path="Announcements" element={<h1>Announcements</h1>} />
+            <Route path="Pages" element={<h1>Pages</h1>} />
+            <Route path="Files" element={<h1>Files</h1>} />
+          </Routes>
         </div>
-
-      </div>
+    </div>
+    </div>
   );
 }
-
-export default Courses;
+export default Courses

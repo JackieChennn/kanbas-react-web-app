@@ -1,5 +1,30 @@
-#wd-course-cards-container {
-    max-width: 1100px;
-    margin-right: 50px;
-    column-gap: 20px;
-}
+/* Set the width of the courses between 250 and 400 pixels */
+.col {
+    min-width: 250px;
+    max-width: 400px;
+  }
+  
+  /* Add white spacing between courses above and below */
+  .col {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  
+  /* Add white spacing between the right edge of the sidebar and the left edge of the leftmost course */
+  .sidebar {
+    margin-right: 30px; /* Adjust this value based on your design */
+  }
+  
+  /* Center the content in each card body */
+  .card-body {
+    text-align: center;
+  }
+  
+  /* Style the card title link */
+  .card-title {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* Style the "Go" button */

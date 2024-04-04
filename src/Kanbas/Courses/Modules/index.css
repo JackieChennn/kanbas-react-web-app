@@ -1,0 +1,59 @@
+.wd-modules,
+.wd-modules * {
+  border-radius: 0%;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wd-modules {
+  margin: 5px;
+}
+
+.wd-modules > li {
+  background-color: #f5f5f5;
+  border: 1px solid #c7cdd1 !important;
+  border-left: none !important;
+}
+
+.wd-modules > li > ul {
+  background-color: #f5f5f5;
+  border: 1px solid #c7cdd1 !important;
+  border-left: none !important;
+}
+
+.wd-modules > li > div {
+  padding: 6px;
+  border-left: 1px solid gray !important;
+}
+
+.wd-modules > li > ul > li {
+  padding: 5px;
+  border-top: 1px solid gray !important;
+  border-left: 2px solid green;
+}
+
+.wd-modules > li {
+  margin-bottom: 20px;
+  border: 1px solid gray !important;
+}
+
+.wd-modules > li > .float-end {
+  margin-left: auto; /* Push to the extreme right */
+}
+
+.course-status {
+  padding-left: 15px;
+}
+
+.list-group i {
+  padding: 3px;
+}
+
+.tab {
+  padding: 30px;
+}
+
+.btn {
+  margin-left: 5px;
+}
