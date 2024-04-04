@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import db from "../../Database";
+import {useState, useEffect } from "react";
+import axios from "axios";
 
 const initialState = {
   assignments: db.assignments,
