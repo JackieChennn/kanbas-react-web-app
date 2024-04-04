@@ -7,6 +7,7 @@
   margin-left: 20px;
   margin-right: 10px;
 }
+
 .wd-navigation li {
   padding-left: 10px;
   margin-bottom: 5px;
@@ -14,12 +15,15 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .wd-navigation li.wd-active {
   border-left: 2px solid black;
 }
+
 .wd-navigation li.wd-active a {
   color: black;
 }
+
 .wd-navigation a {
   color: rgba(200, 19, 19, 0.675);
   text-decoration: none;
@@ -27,10 +31,10 @@
 }
 
 
-  .fs-1 {
-    float: right;
-    width: 0.5em;
-    height: 0.5em;
-    color: black;
-  }
+.fs-1 {
+  float: right;
+  width: 0.5em;
+  height: 0.5em;
+  color: black;
+}
   
