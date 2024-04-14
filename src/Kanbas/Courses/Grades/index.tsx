@@ -1,70 +1,110 @@
-import db from "../../Database";
+import React, {useState} from 'react';
+import {
+  FaArrowDown,
+  FaCog,
+  FaEllipsisV,
+  FaFileExport,
+  FaFileImport,
+  FaFilter,
+  FaKeyboard,
+  FaSearch,
+  FaSignOutAlt
+} from "react-icons/fa";
+import {assignments, enrollments, grades, users} from "../../Database";
 import {useParams} from "react-router-dom";
-import {IoMdArrowDropdown} from "react-icons/io";
-import {FaRegKeyboard} from "react-icons/fa6";
-import {CiImport} from "react-icons/ci";
-import {CgExport} from "react-icons/cg";
-import {FaGear} from "react-icons/fa6";
-import {CiFilter} from "react-icons/ci";
-import "./index.css";
-import React from "react";
 
 function Grades() {
-  const {cid} = useParams();
-  const assignments = db.assignments.filter((assignment) => assignment.course === cid);
-  const enrollments = db.enrollments.filter((enrollment) => enrollment.course === cid);
+  const {courseId} = useParams();
+  const as = assignments.filter((assignment) => assignment.course === courseId);
+  const es = enrollments.filter((enrollment) => enrollment.course === courseId);
+  const [showIcon, setShowIcon] = useState(false);
+  const handleIconClick = () => {
+    setShowIcon(true);
+  };
   return (
-      <div className="d-block">
-        <div className="d-flex justify-content-between">
-          <div className="text-danger">Gradebook <IoMdArrowDropdown/></div>
-          <div className="text-danger"><FaRegKeyboard/></div>
-          <div>
-            <button className="btn btn-secondary"><CiImport/>Import</button>
-            <button className="btn btn-secondary"><CgExport/>Import</button>
-            <button className="btn btn-secondary"><FaGear/></button>
-          </div>
-        </div>
-        <div className="d-flex justify-content-between">
-          <div className="d-block">
-            <div className="fw-bold">Student Names</div>
-            <div><input type="text" className="form-control" name="due" id="due"
-                        value="Search Students"/></div>
-          </div>
-          <div className="d-block">
-            <div className="fw-bold">Assignment Names</div>
-            <div><input type="text" className="form-control" name="due" id="due"
-                        value="Search Assignments"/></div>
-          </div>
-        </div>
-        <div>
-          <button className="btn btn-secondary"><CiFilter/>Apply Filters</button>
-        </div>
-        <div className="table-responsive">
-          <table className="table table-striped">
-            <thead>
-            <th>Student Name</th>
-            {assignments.map((assignment) => (<th>{assignment.title}</th>))}
-            </thead>
+      <div className='d-flex'>
+        <div className="flex-fill table-responsive">
+          <table width="100%">
             <tbody>
-            {enrollments.map((enrollment) => {
-              const user = db.users.find((user) => user._id === enrollment.user);
+            <tr>
+              <td>
+                <select id="select-gradebook" style={{border: 0, color: 'red'}}>
+                  <option value="Gradebook">Gradebook</option>
+                  <option value="Change">Change Gradebook View</option>
+                  <option value="Traditional">Traditional Gradebook</option>
+                  <option value="Individual">Individual Gradebook</option>
+                </select>
+                <FaKeyboard style={{color: 'red'}}/>
+              </td>
+              <td>
+                <div className="float-end">
+                  <button className="btn btn-outline-secondary"><FaFileImport/>Import</button>
+                  <button className="btn btn-outline-secondary" id="select-export"><FaFileExport/>
+                    <select style={{border: 0}}>
+                      <option value="Export">Export</option>
+                    </select>
+                  </button>
+                  <button className="btn btn-outline-secondary"><FaCog/></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="text-fields-name"><h3>Student Names</h3></label>
+                <div className="input-group">
+                  <span className="input-group-text"><FaSearch/></span>
+                  <input className="form-control" placeholder="Search Student"/>
+                  <span className="input-group-text" style={{marginRight: 20}}><FaArrowDown/></span>
+                </div>
+              </td>
+              <td>
+                <label htmlFor="text-fields-assignment"><h3>Assignment Names</h3></label>
+                <div className="input-group">
+                  <span className="input-group-text"><FaSearch/></span>
+                  <input className="form-control" placeholder="Search Assignments"/>
+                  <span className="input-group-text" style={{marginRight: 20}}><FaArrowDown/></span>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <br/>
+          <button className="btn btn-outline-secondary"><FaFilter/>Apply Filters</button>
+          <br/><br/>
+          <table className="table table-striped">
+            <tbody>
+            <tr>
+              <td>Student Name</td>
+              {as.map((assignment) => (<td>{assignment.title}</td>))}
+            </tr>
+
+            {es.map((enrollment) => {
+              const user = users.find((user) => user._id === enrollment.user);
               return (
                   <tr>
-                    <td className="text-danger">{user?.firstName} {user?.lastName}</td>
-                    {assignments.map((assignment) => {
-                      const grade = db.grades.find(
-                          (grade: {
-                            student: string;
-                            assignment: string;
-                          }) => grade.student === enrollment.user && grade.assignment === assignment._id);
-                      return (<td>{grade?.grade || ""}</td>);
+                    <td style={{color: 'red'}}>{user?.firstName} {user?.lastName}</td>
+                    {as.map((assignment) => {
+                      const grade = grades.find(
+                          (grade) => grade.student === enrollment.user && grade.assignment === assignment._id);
+                      return (
+                          <td>
+                            <div className="input-group" style={{width: 90}}>
+                              <input onClick={handleIconClick} type="number"
+                                     className="form-control" style={{fontSize: '0.7em'}}
+                                     value={grade?.grade || ""}/>
+                              <button className='btn btn-outline-primary input-group-text'>
+                                {showIcon && <FaSignOutAlt style={{fontSize: '0.7em'}}/>}
+                              </button>
+                            </div>
+                          </td>);
                     })}
                   </tr>);
             })}
             </tbody>
           </table>
         </div>
-      </div>);
+      </div>
+  );
 }
 
-export default Grades;
+export default Grades
