@@ -51,6 +51,7 @@ function Kanbas() {
         })
     );
   };
+
   return (
       <Provider store={store}>
         <>
