@@ -55,7 +55,7 @@ function QuizEditor() {
 
   return (
         <div>
-          <h1>HAHAHA</h1>
+          <h1>Quiz Editor</h1>
         </div>
     );
 }

@@ -44,7 +44,8 @@ function Courses() {
               <Route path="Assignments" element={<Assignments/>}/>
               <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
               <Route path="Quizzes" element={<Quizzes/>}/>
-              <Route path="Quizzes/:quizId" element={<QuizEditor/>}/>
+              <Route path="Quizzes/:quizId" element={<h1>Quiz Detail</h1>}/>
+              <Route path="Quizzes/:quizId/edit" element={<QuizEditor/>}/>
               <Route path="Grades" element={<Grades/>}/>
               <Route path="People" element={<h1>People</h1>}/>
               <Route path="Panapto Video" element={<h1>Panapto Video</h1>}/>
