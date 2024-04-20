@@ -12,6 +12,7 @@ import Modules from "./Modules";
 import Quizzes from "./Quizzes";
 import QuizEditor from "./Quizzes/Editor";
 import QuizDetail from "./Quizzes/Details";
+import QuizQuestionsEditor from "./Quizzes/QuestionsEditor";
 
 function Courses() {
   const {courseId} = useParams();
@@ -47,6 +48,8 @@ function Courses() {
               <Route path="Quizzes" element={<Quizzes/>}/>
               <Route path="Quizzes/:quizId" element={<QuizDetail/>}/>
               <Route path="Quizzes/:quizId/edit" element={<QuizEditor/>}/>
+              <Route path="Quizzes/:quizId/editquestions"
+                     element={<QuizQuestionsEditor/>}/>
               <Route path="Grades" element={<Grades/>}/>
               <Route path="People" element={<h1>People</h1>}/>
               <Route path="Panapto Video" element={<h1>Panapto Video</h1>}/>

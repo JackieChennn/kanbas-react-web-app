@@ -13,7 +13,7 @@ import {
 
 import {useSelector, useDispatch} from "react-redux";
 
-function QuizEditor() {
+function QuestionsEditor() {
   const {courseId, quizId} = useParams();
   const {pathname} = useLocation();
   const navigate = useNavigate();
@@ -69,7 +69,7 @@ function QuizEditor() {
           </NavLink>
         </div>
         <div>
-          <h1>Quiz Detail Editor</h1>
+          <h1>Questions Editor</h1>
           {/* Render the component based on the route */}
           <Outlet/>
         </div>
@@ -77,4 +77,4 @@ function QuizEditor() {
   );
 }
 
-export default QuizEditor;
+export default QuestionsEditor;
