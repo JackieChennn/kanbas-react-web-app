@@ -15,6 +15,7 @@ import * as client from "./client";
 import {useDispatch, useSelector} from "react-redux";
 
 function Quizzes() {
+  const {courseId} = useParams();
   const quizList = useSelector((state: KanbasState) => state.quizReducer.quizzes);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ function Quizzes() {
   };
 
   const handleEditQuiz = (quizId: any) => {
-    navigate(`/Kanbas/Quizzes/${quizId}/edit`);
+    navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/edit`);
   };
 
   const handleDeleteQuiz = (quizId: any) => {
@@ -68,7 +69,7 @@ function Quizzes() {
           <span className="float-end">
             <button className="btn btn-outline-secondary"><FaPlus/> Group</button>
             <button className="btn btn-danger"
-                    onClick={() => navigate(`/Kanbas/Quizzes/new`)}><FaPlus/> Quiz</button>
+                    onClick={() => navigate(`/Kanbas/Courses/${courseId}/Quizzes/new`)}><FaPlus/> Quiz</button>
             <button className="btn btn-outline-secondary"><FaEllipsisV/></button>
           </span>
             <input type="text" className="form-control w-50" placeholder="Search for Quiz"/>
@@ -85,7 +86,7 @@ function Quizzes() {
                         </ul>
                     )}
                     <FaEdit className="me-2 clickable" onClick={() => handleEditQuiz(quiz._id)}/>
-                    <Link to={`/Kanbas/Quizzes/${quiz._id}`}
+                    <Link to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}`}
                           style={{color: "black"}}>{quiz.quiz_name}</Link>
                     <span className="float-end">
                   {quiz.published ? <FaCheckCircle className="text-success"/> :
