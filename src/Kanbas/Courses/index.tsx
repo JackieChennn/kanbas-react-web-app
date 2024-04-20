@@ -11,6 +11,7 @@ import CourseHeader from "./header";
 import Modules from "./Modules";
 import Quizzes from "./Quizzes";
 import QuizEditor from "./Quizzes/Editor";
+import QuizDetail from "./Quizzes/Details";
 
 function Courses() {
   const {courseId} = useParams();
@@ -44,7 +45,7 @@ function Courses() {
               <Route path="Assignments" element={<Assignments/>}/>
               <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
               <Route path="Quizzes" element={<Quizzes/>}/>
-              <Route path="Quizzes/:quizId" element={<h1>Quiz Detail</h1>}/>
+              <Route path="Quizzes/:quizId" element={<QuizDetail/>}/>
               <Route path="Quizzes/:quizId/edit" element={<QuizEditor/>}/>
               <Route path="Grades" element={<Grades/>}/>
               <Route path="People" element={<h1>People</h1>}/>

@@ -27,7 +27,6 @@ function Quizzes() {
 
   const handleTogglePublish = (quiz: any) => {
     const updatedQuiz = {...quiz, published: !quiz.published};
-
     client.updateQuiz(updatedQuiz)
     .then(() => {
       const updatedQuizzes = quizList.map(q =>
