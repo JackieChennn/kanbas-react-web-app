@@ -19,7 +19,7 @@ const initialState = {
     "due_date": "2024-04-19T00:00:00.000Z",
     "available_date": "2024-04-10T00:00:00.000Z",
     "until_date": "2024-04-22T00:00:00.000Z",
-    "published": true,
+    "published": false,
     "quiz_instructions": "Instructions",
     "questions": [
       {
@@ -119,7 +119,7 @@ const initialState = {
     "due_date": "2024-04-19T00:00:00.000Z",
     "available_date": "2024-04-10T00:00:00.000Z",
     "until_date": "2024-04-22T00:00:00.000Z",
-    "published": true,
+    "published": false,
     "quiz_instructions": "Instructions",
     "questions": [
       {
