@@ -1,5 +1,5 @@
-import {FaBan, FaCheckCircle, FaEllipsisV} from "react-icons/fa";
-import {NavLink, useLocation, useNavigate, useParams} from "react-router-dom";
+import {FaBan, FaCheckCircle, FaEdit, FaEllipsisV} from "react-icons/fa";
+import {Link, NavLink, useLocation, useNavigate, useParams} from "react-router-dom";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {KanbasState} from "../../../../store";
@@ -77,6 +77,38 @@ function QuestionEditor() {
       });
     }
   };
+  const handleDeleteAnswerButton = (currQuestion: any) => {
+    const isConfirmed = window.confirm('Are you sure you want to delete this answer?');
+    if (isConfirmed) {
+      const updatedQuestions = quiz.questions.filter((question: {
+        _id: any;
+      }) => question._id !== currQuestion._id);
+      const updatedQuiz = {...quiz, questions: updatedQuestions};
+      client.updateQuiz(updatedQuiz).then(() => {
+        dispatch(updateQuiz(updatedQuiz));
+      });
+    }
+  };
+  const handleAddPossibleAnswerButton = (currQuestion: { _id: any; }) => {
+    const updatedQuestions = quiz.questions.map((question: { _id: any; choices_possible_answers: any; }) => {
+      if (question._id === currQuestion._id) {
+        const newAnswers = [...question.choices_possible_answers, ""];
+        return {...question, choices_possible_answers: newAnswers};
+      }
+      return question;
+    });
+    dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
+  };
+  const handleSaveQuestionButton = () => {
+    client.updateQuiz(quiz).then(() => {
+        dispatch(updateQuiz(quiz));
+        alert("Question updated successfully!");
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/editquestions`);
+    }).catch(err => {
+        console.error("Failed to save the question:", err);
+        alert("Failed to save the question. Please try again.");
+    });
+};
 
   useEffect(() => {
     if (quizId !== "new") {
@@ -130,8 +162,63 @@ function QuestionEditor() {
     });
     dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
   };
+  const handleQuestionCorrectAnswerChange = (newChoicesCorrectAnswer: any) => {
+    const updatedQuestions = quiz.questions.map((question: { _id: any; }) => {
+      if (question._id === currQuestion._id) {
+        return {...question, choices_correct_answer: newChoicesCorrectAnswer};
+      }
+      return question;
+    });
+    dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
+  };
+  const handleQuestionPossibleAnswerChange = (newPossibleAnswer: any, index: number) => {
+    const updatedQuestions = quiz.questions.map((question: {
+      _id: any;
+      choices_possible_answers: any;
+    }) => {
+      if (question._id === currQuestion._id) {
+        const updatedPossibleAnswers = [...question.choices_possible_answers];
+        updatedPossibleAnswers[index] = newPossibleAnswer;
+        return {...question, choices_possible_answers: updatedPossibleAnswers};
+      }
+      return question;
+    });
+    dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
+  };
   const DisplayMultipleChoiceQuestionAnswers = () => {
-    return (<h1>DisplayMultipleChoiceQuestionAnswers</h1>)
+    return (
+        <div>
+          <ul className="list-group">
+            <span>Correct Answer</span>
+            <li key={0} className="list-group-item">
+              <input value={currQuestion?.choices_correct_answer} onChange={(e) =>
+                  handleQuestionCorrectAnswerChange(e.target.value)
+              } className="form-control" placeholder="New Question"/>
+            </li>
+
+            <span>Possible Answer</span>
+            {currQuestion.choices_possible_answers.map((answer: any, index: number) => (
+                <li key={index} className="list-group-item"><FaEdit
+                    className="me-2"/>
+                  <input value={answer} onChange={(e) =>
+                      handleQuestionPossibleAnswerChange(e.target.value, index)
+                  } className="form-control" placeholder="New Question"/>
+                  <button className="float-end btn btn-outline-danger"
+                          onClick={() => handleDeleteAnswerButton(currQuestion)}>
+                    Delete
+                  </button>
+                </li>))}
+          </ul>
+          <button className="btn btn-outline-secondary"
+                  onClick={() => handleAddPossibleAnswerButton(currQuestion)}>
+            Add Another Answer
+          </button>
+          <button className="btn btn-outline-success"
+                  onClick={() => handleSaveQuestionButton()}>
+            Update Question
+          </button>
+        </div>
+    )
   }
   const DisplayTrueFalseQuestionAnswers = () => {
     return (<h1>DisplayTrueFalseQuestionAnswers</h1>)
