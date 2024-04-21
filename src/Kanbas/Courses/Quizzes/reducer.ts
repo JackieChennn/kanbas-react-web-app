@@ -5,7 +5,7 @@ const initialState = {
   quiz: {
     "_id": "new",
     "quiz_name": "New Quiz",
-    "quiz_type": "graded_quiz",
+    "quiz_type": "Graded Quiz",
     "points": 100,
     "assignment_group": "quizzes",
     "shuffle_answers": true,
@@ -105,7 +105,7 @@ const initialState = {
   tempQuiz: {
     "_id": "new",
     "quiz_name": "New Quiz",
-    "quiz_type": "graded_quiz",
+    "quiz_type": "Graded Quiz",
     "points": 100,
     "assignment_group": "quizzes",
     "shuffle_answers": true,

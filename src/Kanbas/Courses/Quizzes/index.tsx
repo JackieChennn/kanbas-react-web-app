@@ -46,6 +46,18 @@ function Quizzes() {
     const date = new Date(dateString);
     return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
   };
+  const getAvailability = (quiz: any) => {
+    const now = new Date();
+    const available_date = new Date(quiz.available_date);
+    const until_date = new Date(quiz.until_date);
+    if (now < available_date) {
+      return `Not available until ${formatDate(available_date)}`
+    } else if (now < until_date) {
+      return "Available"
+    } else {
+      return "Closed"
+    }
+  };
 
   const handleEditQuiz = (quizId: any) => {
     navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/edit`);
@@ -94,7 +106,7 @@ function Quizzes() {
                 </span>
                     <br/>
                     <span style={{fontSize: 10}}>
-                  {quiz.published} |
+                  {getAvailability(quiz)} |
                   Due {formatDate(quiz.due_date)} at 11:59pm | {quiz.points} pts | {quiz.questions.length} Questions
                 </span>
                   </li>
