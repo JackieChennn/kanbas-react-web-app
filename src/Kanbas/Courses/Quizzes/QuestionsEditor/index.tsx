@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useNavigate, useLocation, useParams, NavLink, Outlet, Link} from "react-router-dom";
-import {FaBan, FaCheckCircle, FaEdit, FaEllipsisV} from "react-icons/fa";
+import {FaBan, FaCheckCircle, FaEdit, FaEllipsisV, FaPlus} from "react-icons/fa";
 import {KanbasState} from "../../../store";
 import * as client from "../client";
 import {
@@ -27,6 +27,19 @@ function QuestionsEditor() {
   const quiz = useSelector(
       (state: KanbasState) => state.quizReducer.quiz
   );
+  const handleTogglePublish = (quiz: any) => {
+    const updatedQuiz = {...quiz, published: !quiz.published};
+    client.updateQuiz(updatedQuiz)
+    .then(() => {
+      const updatedQuizzes = quizzes.map(q =>
+          q._id === quiz._id ? updatedQuiz : q
+      );
+      dispatch(setQuizzes(updatedQuizzes));  // Dispatch the action to update quizzes in Redux
+    })
+    .catch(err => {
+      console.error("Failed to update quiz", err);
+    });
+  };
   const handleSave = () => {
     if (pathname.includes("new")) {
       client.createQuiz(quiz).then(() => {
@@ -36,6 +49,25 @@ function QuestionsEditor() {
     } else {
       client.updateQuiz(quiz).then(() => {
         dispatch(updateQuiz(quiz));
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
+      });
+    }
+  };
+  const handleSaveAndPublish = () => {
+    if (pathname.includes("new")) {
+      client.createQuiz(quiz).then(() => {
+        dispatch(addQuiz(quiz));
+        if (!quiz.published) {
+          handleTogglePublish(quiz);
+        }
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
+      });
+    } else {
+      client.updateQuiz(quiz).then(() => {
+        dispatch(updateQuiz(quiz));
+        if (!quiz.published) {
+          handleTogglePublish(quiz);
+        }
         navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
       });
     }
@@ -101,10 +133,9 @@ function QuestionsEditor() {
             {quiz.questions.map((question: any, index: number) => (
                 <li key={index} className="list-group-item">
                   <FaEllipsisV className="me-2"/>
-                  <FaEdit className="me-2"/>
                   <Link
-                      to={`/Kanbas/Courses/${courseId}/Quizzes`}
-                      style={{color: "black"}}>{question.text}</Link>
+                      to={`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/editquestions/${question._id}`}
+                      style={{color: "black"}}><FaEdit className="me-2"/>{question.text}</Link>
                   <span className="float-end">
                   <FaCheckCircle className="text-success"/><FaEllipsisV
                       className="ms-2"/></span><br/>
@@ -116,6 +147,27 @@ function QuestionsEditor() {
                   </button>
                 </li>))}
           </ul>
+        </div>
+        <div>
+          <button className="btn btn-outline-secondary ms-2"
+                  onClick={() => navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/editquestions/new`)}>
+            <FaPlus/> New Question
+          </button>
+        </div>
+        <hr/>
+        <div className="col-sm-4 text-end">
+          <button className="btn btn-danger ms-2 float-end"
+                  onClick={() => handleSave()}>
+            Save
+          </button>
+          <button className="btn btn-secondary ms-2 float-end"
+                  onClick={() => handleSaveAndPublish()}>
+            Save & Publish
+          </button>
+          <Link to={`/Kanbas/Courses/${courseId}/Quizzes`}
+                className="btn btn-secondary float-end">
+            Cancel
+          </Link>
         </div>
       </div>
   );
