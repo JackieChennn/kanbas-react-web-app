@@ -235,6 +235,9 @@ const quizSlice = createSlice({
     setQuizzes: (state, action) => {
       state.quizzes = action.payload;
     },
+    deleteQuestion: (state, action) => {
+      state.quiz.questions = state.quiz.questions.filter(question => question._id !== action.payload.questionId);
+    },
   },
 });
 
