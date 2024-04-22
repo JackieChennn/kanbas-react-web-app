@@ -1,4 +1,4 @@
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {KanbasState} from "../../../store";
 import * as client from "../client";
@@ -109,6 +109,14 @@ function QuizPreview() {
                 {question.type === "Multiple Choice Question" ? PreviewMultipleChoiceQuestion(question) : question.type === "True False Question" ? PreviewTrueFalseQuestion(question) : PreviewMultipleBlanksQuestion(question)}
               </li>))}
         </ul>
+        <Link to={`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/edit`}
+              className="btn btn-secondary float-end">
+          Edit This Quiz
+        </Link>
+        <Link to={`/Kanbas/Courses/${courseId}/Quizzes/${quizId}`}
+              className="btn btn-secondary float-end">
+          Back
+        </Link>
       </div>
   );
 }
