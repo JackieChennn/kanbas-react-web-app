@@ -34,7 +34,7 @@ function QuestionsEditor() {
       const updatedQuizzes = quizzes.map(q =>
           q._id === quiz._id ? updatedQuiz : q
       );
-      dispatch(setQuizzes(updatedQuizzes));  // Dispatch the action to update quizzes in Redux
+      dispatch(setQuizzes(updatedQuizzes));
     })
     .catch(err => {
       console.error("Failed to update quiz", err);

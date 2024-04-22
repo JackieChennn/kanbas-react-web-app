@@ -32,7 +32,7 @@ function Quizzes() {
       const updatedQuizzes = quizList.map(q =>
           q._id === quiz._id ? updatedQuiz : q
       );
-      dispatch(setQuizzes(updatedQuizzes));  // Dispatch the action to update quizzes in Redux
+      dispatch(setQuizzes(updatedQuizzes));
     })
     .catch(err => {
       console.error("Failed to update quiz", err);
@@ -68,7 +68,7 @@ function Quizzes() {
     if (isConfirmed) {
       client.deleteQuiz(quizId).then(() => {
         dispatch(deleteQuiz(quizId));
-        setActiveMenu(null);  // Close the menu
+        setActiveMenu(null);
       });
     }
   };
