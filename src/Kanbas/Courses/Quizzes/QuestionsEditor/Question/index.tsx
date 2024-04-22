@@ -386,7 +386,7 @@ function QuestionEditor() {
         <div>
           <span style={{fontSize: 18}} className="fw-bold">Answer:</span>
           {currQuestion.type === "Multiple Choice Question" ?
-              DisplayMultipleChoiceQuestionAnswers() : currQuestion.type === "True/False Question" ?
+              DisplayMultipleChoiceQuestionAnswers() : currQuestion.type === "True False Question" ?
                   DisplayTrueFalseQuestionAnswers() : DisplayMultipleBlanksQuestionAnswers()}
         </div>
         <button className="btn btn-outline-secondary">

@@ -26,24 +26,26 @@ const initialState = {
         "_id": "66232cab3689ecd8236703e8",
         "question_id": "001",
         "type": "Multiple Choice Question",
-        "text": "Multiple Choice Question Title",
+        "text": "Default Multiple Choice Question",
         "points": 10,
         "question": "How much is 2 + 2?",
         "choices_correct_answer": "4",
         "choices_possible_answers": [
           "3",
-          "5"
+          "5",
+          "6",
+          "7"
         ],
         "answer": false,
         "blanks_answer": [
           {
             "_id": "66232cab3689ecd8236703e9",
-            "answer_id": "001",
+            "answer_id": "1",
             "answer": "2"
           },
           {
             "_id": "66232cab3689ecd8236703ea",
-            "answer_id": "002",
+            "answer_id": "2",
             "answer": "-2"
           }
         ]
@@ -52,24 +54,26 @@ const initialState = {
         "_id": "66232cab3689ecd8236703eb",
         "question_id": "002",
         "type": "True False Question",
-        "text": "True False Question Title",
+        "text": "Default True False Question",
         "points": 10,
         "question": "2 + 2 = 4",
         "choices_correct_answer": "4",
         "choices_possible_answers": [
           "3",
-          "5"
+          "5",
+          "6",
+          "7"
         ],
         "answer": true,
         "blanks_answer": [
           {
             "_id": "66232cab3689ecd8236703ec",
-            "answer_id": "001",
+            "answer_id": "1",
             "answer": "2"
           },
           {
             "_id": "66232cab3689ecd8236703ed",
-            "answer_id": "002",
+            "answer_id": "2",
             "answer": "-2"
           }
         ]
@@ -78,24 +82,26 @@ const initialState = {
         "_id": "66232cab3689ecd8236703ee",
         "question_id": "003",
         "type": "Multiple Blanks Question",
-        "text": "Multiple Blanks Question Title",
+        "text": "Default Multiple Blanks Question",
         "points": 10,
-        "question": "x * x = 4",
+        "question": "__1__ + 3 = 5, __2__ - 2 = -4",
         "choices_correct_answer": "4",
         "choices_possible_answers": [
           "3",
-          "5"
+          "5",
+          "6",
+          "7"
         ],
         "answer": false,
         "blanks_answer": [
           {
             "_id": "66232cab3689ecd8236703ef",
-            "answer_id": "001",
+            "answer_id": "1",
             "answer": "2"
           },
           {
             "_id": "66232cab3689ecd8236703f0",
-            "answer_id": "002",
+            "answer_id": "2",
             "answer": "-2"
           }
         ]
@@ -126,24 +132,26 @@ const initialState = {
         "_id": "66232cab3689ecd8236703e8",
         "question_id": "001",
         "type": "Multiple Choice Question",
-        "text": "Multiple Choice Question Title",
+        "text": "Default Multiple Choice Question",
         "points": 10,
         "question": "How much is 2 + 2?",
         "choices_correct_answer": "4",
         "choices_possible_answers": [
           "3",
-          "5"
+          "5",
+          "6",
+          "7"
         ],
         "answer": false,
         "blanks_answer": [
           {
             "_id": "66232cab3689ecd8236703e9",
-            "answer_id": "001",
+            "answer_id": "1",
             "answer": "2"
           },
           {
             "_id": "66232cab3689ecd8236703ea",
-            "answer_id": "002",
+            "answer_id": "2",
             "answer": "-2"
           }
         ]
@@ -152,24 +160,26 @@ const initialState = {
         "_id": "66232cab3689ecd8236703eb",
         "question_id": "002",
         "type": "True False Question",
-        "text": "True False Question Title",
+        "text": "Default True False Question",
         "points": 10,
         "question": "2 + 2 = 4",
         "choices_correct_answer": "4",
         "choices_possible_answers": [
           "3",
-          "5"
+          "5",
+          "6",
+          "7"
         ],
         "answer": true,
         "blanks_answer": [
           {
             "_id": "66232cab3689ecd8236703ec",
-            "answer_id": "001",
+            "answer_id": "1",
             "answer": "2"
           },
           {
             "_id": "66232cab3689ecd8236703ed",
-            "answer_id": "002",
+            "answer_id": "2",
             "answer": "-2"
           }
         ]
@@ -178,24 +188,26 @@ const initialState = {
         "_id": "66232cab3689ecd8236703ee",
         "question_id": "003",
         "type": "Multiple Blanks Question",
-        "text": "Multiple Blanks Question Title",
+        "text": "Default Multiple Blanks Question",
         "points": 10,
-        "question": "x * x = 4",
+        "question": "__1__ + 3 = 5, __2__ - 2 = -4",
         "choices_correct_answer": "4",
         "choices_possible_answers": [
           "3",
-          "5"
+          "5",
+          "6",
+          "7"
         ],
         "answer": false,
         "blanks_answer": [
           {
             "_id": "66232cab3689ecd8236703ef",
-            "answer_id": "001",
+            "answer_id": "1",
             "answer": "2"
           },
           {
             "_id": "66232cab3689ecd8236703f0",
-            "answer_id": "002",
+            "answer_id": "2",
             "answer": "-2"
           }
         ]

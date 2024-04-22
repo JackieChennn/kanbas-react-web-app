@@ -69,7 +69,6 @@ function QuizDetail() {
       dispatch(selectQuiz(tempQuiz));
     }
   }, [quizId, quizzes, tempQuiz, dispatch]);
-  console.log(tempQuiz)
   return (
       <>
         <div className="d-flex">
@@ -78,7 +77,8 @@ function QuizDetail() {
             <button className="btn btn-success"
                     onClick={() => handleTogglePublish(quiz)}>{quiz.published ? 'Unpublish' : 'Publish'}
             </button>
-            <button className="btn btn-secondary"> Preview</button>
+            <button className="btn btn-secondary"
+                    onClick={() => navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/preview`)}> Preview</button>
             <button className="btn btn-secondary"
                     onClick={() => navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/edit`)}><FaPen/>Edit</button>
             <button className="btn btn-secondary"> ...</button>
