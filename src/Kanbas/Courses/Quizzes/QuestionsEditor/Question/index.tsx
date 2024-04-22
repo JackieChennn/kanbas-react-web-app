@@ -89,6 +89,39 @@ function QuestionEditor() {
       });
     }
   };
+  const handleDeletePossibleAnswerButton = (currQuestion: { _id: any; }, index: number) => {
+    const isConfirmed = window.confirm('Are you sure you want to delete this answer?');
+    if (isConfirmed) {
+      const updatedQuestions = quiz.questions.map((question: {
+        _id: any;
+        choices_possible_answers: any[];
+      }) => {
+        if (question._id === currQuestion._id) {
+          const value = question.choices_possible_answers[index];
+          const newChoicesPossibleAnswers = question.choices_possible_answers.filter((x) => x !== value);
+          return {...question, choices_possible_answers: newChoicesPossibleAnswers};
+        }
+        return question;
+      });
+      dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
+    }
+  };
+  const handleDeleteBlanksAnswerButton = (currQuestion: { _id: any; }, index: number) => {
+    const isConfirmed = window.confirm('Are you sure you want to delete this answer?');
+    if (isConfirmed) {
+      const updatedQuestions = quiz.questions.map((question: {
+        _id: any;
+        blanks_answer: any[];
+      }) => {
+        if (question._id === currQuestion._id) {
+          const newBlanksAnswer = question.blanks_answer.filter((_, idx) => idx !== index);
+          return {...question, blanks_answer: newBlanksAnswer};
+        }
+        return question;
+      });
+      dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
+    }
+  };
   const handleAddPossibleAnswerButton = (currQuestion: { _id: any; }) => {
     const updatedQuestions = quiz.questions.map((question: {
       _id: any;
@@ -97,6 +130,25 @@ function QuestionEditor() {
       if (question._id === currQuestion._id) {
         const newAnswers = [...question.choices_possible_answers, ""];
         return {...question, choices_possible_answers: newAnswers};
+      }
+      return question;
+    });
+    dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
+  };
+  const handleAddBlanksAnswerButton = (currQuestion: {
+    _id: any;
+    blanks_answer: string | any[];
+  }) => {
+    const updatedQuestions = quiz.questions.map((question: {
+      _id: any;
+      blanks_answer: any;
+    }) => {
+      if (question._id === currQuestion._id) {
+        const newBlanksAnswers = [...question.blanks_answer, {
+          answer_id: currQuestion.blanks_answer.length + 1,
+          answer: ""
+        }];
+        return {...question, blanks_answer: newBlanksAnswers};
       }
       return question;
     });
@@ -197,6 +249,20 @@ function QuestionEditor() {
     });
     dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
   };
+  const handleQuestionBlanksAnswerChange = (newBlanksAnswer: any, index: number) => {
+    const updatedQuestions = quiz.questions.map((question: {
+      _id: any;
+      blanks_answer: any;
+    }) => {
+      if (question._id === currQuestion._id) {
+        const updatedBlanksAnswers = [...question.blanks_answer];
+        updatedBlanksAnswers[index] = {answer_id: index + 1, answer: newBlanksAnswer};
+        return {...question, blanks_answer: updatedBlanksAnswers};
+      }
+      return question;
+    });
+    dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
+  };
   const DisplayMultipleChoiceQuestionAnswers = () => {
     return (
         <div>
@@ -216,7 +282,7 @@ function QuestionEditor() {
                       handleQuestionPossibleAnswerChange(e.target.value, index)
                   } className="form-control" placeholder="New Question"/>
                   <button className="float-end btn btn-outline-danger"
-                          onClick={() => handleDeleteAnswerButton(currQuestion)}>
+                          onClick={() => handleDeletePossibleAnswerButton(currQuestion, index)}>
                     Delete
                   </button>
                 </li>))}
@@ -226,7 +292,7 @@ function QuestionEditor() {
             Add Another Answer
           </button>
         </div>
-    )
+    );
   }
   const DisplayTrueFalseQuestionAnswers = () => {
     return (
@@ -239,10 +305,30 @@ function QuestionEditor() {
             {currQuestion.answer ? "True" : "False"}
           </label>
         </div>
-  )
+    );
   }
   const DisplayMultipleBlanksQuestionAnswers = () => {
-    return (<h1>DisplayMultipleBlanksQuestionAnswers</h1>)
+    return (
+        <div>
+          <ol className="list-group">
+            {currQuestion.blanks_answer.map((blank_answer: any, index: number) => (
+                <li key={index} className="list-group-item"><FaEdit
+                    className="me-2"/> Blank {index + 1}
+                  <input value={blank_answer.answer} onChange={(e) =>
+                      handleQuestionBlanksAnswerChange(e.target.value, index)
+                  } className="form-control" placeholder="New Question"/>
+                  <button className="float-end btn btn-outline-danger"
+                          onClick={() => handleDeleteBlanksAnswerButton(currQuestion, index)}>
+                    Delete
+                  </button>
+                </li>))}
+          </ol>
+          <button className="btn btn-outline-secondary"
+                  onClick={() => handleAddBlanksAnswerButton(currQuestion)}>
+            Add Another Blank
+          </button>
+        </div>
+    );
   }
   return (
       <div>
