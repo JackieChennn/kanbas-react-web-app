@@ -25,7 +25,7 @@ const initialState = {
       {
         "_id": "66232cab3689ecd8236703e8",
         "question_id": "001",
-        "type": "multiple_choice_question",
+        "type": "Multiple Choice Question",
         "text": "Multiple Choice Question Title",
         "points": 10,
         "question": "How much is 2 + 2?",
@@ -51,7 +51,7 @@ const initialState = {
       {
         "_id": "66232cab3689ecd8236703eb",
         "question_id": "002",
-        "type": "true_false_question",
+        "type": "True False Question",
         "text": "True False Question Title",
         "points": 10,
         "question": "2 + 2 = 4",
@@ -77,7 +77,7 @@ const initialState = {
       {
         "_id": "66232cab3689ecd8236703ee",
         "question_id": "003",
-        "type": "multiple_blanks_question",
+        "type": "Multiple Blanks Question",
         "text": "Multiple Blanks Question Title",
         "points": 10,
         "question": "x * x = 4",
@@ -125,7 +125,7 @@ const initialState = {
       {
         "_id": "66232cab3689ecd8236703e8",
         "question_id": "001",
-        "type": "multiple_choice_question",
+        "type": "Multiple Choice Question",
         "text": "Multiple Choice Question Title",
         "points": 10,
         "question": "How much is 2 + 2?",
@@ -151,7 +151,7 @@ const initialState = {
       {
         "_id": "66232cab3689ecd8236703eb",
         "question_id": "002",
-        "type": "true_false_question",
+        "type": "True False Question",
         "text": "True False Question Title",
         "points": 10,
         "question": "2 + 2 = 4",
@@ -177,7 +177,7 @@ const initialState = {
       {
         "_id": "66232cab3689ecd8236703ee",
         "question_id": "003",
-        "type": "multiple_blanks_question",
+        "type": "Multiple Blanks Question",
         "text": "Multiple Blanks Question Title",
         "points": 10,
         "question": "x * x = 4",

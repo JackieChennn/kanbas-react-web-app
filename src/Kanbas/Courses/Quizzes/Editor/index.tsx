@@ -196,7 +196,7 @@ function QuizEditor() {
             <p>Access Code</p>
             <input type="text" value={quiz?.access_code} onChange={(e) =>
                 dispatch(selectQuiz({...quiz, access_code: e.target.value}))
-            } className="form-control mb-2" placeholder="100"/>
+            } className="form-control mb-2" placeholder="Access Code"/>
           </div>
           <label>
             <input checked={quiz.one_question_at_a_time} type="checkbox"

@@ -367,7 +367,7 @@ function QuestionEditor() {
                       handleTypeChange(e.target.value)
                   }>
             <option>Multiple Choice Question</option>
-            <option>True/False Question</option>
+            <option>True False Question</option>
             <option>Multiple Blanks Question</option>
           </select>
           <span className="fw-bold align-content-center">pts:</span>
