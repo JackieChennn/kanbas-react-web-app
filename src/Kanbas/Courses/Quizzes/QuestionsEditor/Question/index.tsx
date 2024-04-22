@@ -90,7 +90,10 @@ function QuestionEditor() {
     }
   };
   const handleAddPossibleAnswerButton = (currQuestion: { _id: any; }) => {
-    const updatedQuestions = quiz.questions.map((question: { _id: any; choices_possible_answers: any; }) => {
+    const updatedQuestions = quiz.questions.map((question: {
+      _id: any;
+      choices_possible_answers: any;
+    }) => {
       if (question._id === currQuestion._id) {
         const newAnswers = [...question.choices_possible_answers, ""];
         return {...question, choices_possible_answers: newAnswers};
@@ -101,14 +104,14 @@ function QuestionEditor() {
   };
   const handleSaveQuestionButton = () => {
     client.updateQuiz(quiz).then(() => {
-        dispatch(updateQuiz(quiz));
-        alert("Question updated successfully!");
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/editquestions`);
+      dispatch(updateQuiz(quiz));
+      alert("Question updated successfully!");
+      navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/editquestions`);
     }).catch(err => {
-        console.error("Failed to save the question:", err);
-        alert("Failed to save the question. Please try again.");
+      console.error("Failed to save the question:", err);
+      alert("Failed to save the question. Please try again.");
     });
-};
+  };
 
   useEffect(() => {
     if (quizId !== "new") {
@@ -185,6 +188,15 @@ function QuestionEditor() {
     });
     dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
   };
+  const handleAnswerChange = (newAnswer: any) => {
+    const updatedQuestions = quiz.questions.map((question: { _id: any; }) => {
+      if (question._id === currQuestion._id) {
+        return {...question, answer: newAnswer};
+      }
+      return question;
+    });
+    dispatch(selectQuiz({...quiz, questions: updatedQuestions}));
+  };
   const DisplayMultipleChoiceQuestionAnswers = () => {
     return (
         <div>
@@ -213,15 +225,21 @@ function QuestionEditor() {
                   onClick={() => handleAddPossibleAnswerButton(currQuestion)}>
             Add Another Answer
           </button>
-          <button className="btn btn-outline-success"
-                  onClick={() => handleSaveQuestionButton()}>
-            Update Question
-          </button>
         </div>
     )
   }
   const DisplayTrueFalseQuestionAnswers = () => {
-    return (<h1>DisplayTrueFalseQuestionAnswers</h1>)
+    return (
+        <div>
+          <label>
+            <input checked={currQuestion.answer} type="checkbox"
+                   onChange={(e) =>
+                       handleAnswerChange(e.target.checked)
+                   }/>
+            {currQuestion.answer ? "True" : "False"}
+          </label>
+        </div>
+  )
   }
   const DisplayMultipleBlanksQuestionAnswers = () => {
     return (<h1>DisplayMultipleBlanksQuestionAnswers</h1>)
@@ -285,6 +303,14 @@ function QuestionEditor() {
               DisplayMultipleChoiceQuestionAnswers() : currQuestion.type === "True/False Question" ?
                   DisplayTrueFalseQuestionAnswers() : DisplayMultipleBlanksQuestionAnswers()}
         </div>
+        <button className="btn btn-outline-secondary">
+          <Link to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/editquestions`}
+                style={{color: "black"}}>Cancel</Link>
+        </button>
+        <button className="btn btn-outline-success"
+                onClick={() => handleSaveQuestionButton()}>
+          Update Question
+        </button>
         <h1>Current Question Status</h1>
         type: {currQuestion.type}<br/>
         text: {currQuestion.text}<br/>
