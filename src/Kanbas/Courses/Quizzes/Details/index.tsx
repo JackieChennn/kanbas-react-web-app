@@ -7,7 +7,6 @@ import {
   addQuiz,
   updateQuiz,
   selectQuiz,
-  deleteQuiz,
   setQuizzes,
 } from "../reducer";
 

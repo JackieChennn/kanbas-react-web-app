@@ -7,12 +7,10 @@ import {
   addQuiz,
   updateQuiz,
   selectQuiz,
-  deleteQuiz,
   setQuizzes,
 } from "../reducer";
 
 import {useSelector, useDispatch} from "react-redux";
-import {selectAssignment} from "../../Assignments/reducer";
 
 function QuizEditor() {
   const {courseId, quizId} = useParams();
