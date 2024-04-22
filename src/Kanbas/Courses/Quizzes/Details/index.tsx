@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
-import {useNavigate, useLocation, useParams, Link} from "react-router-dom";
-import {FaPen, FaCheckCircle, FaEdit, FaEllipsisV, FaPlus} from "react-icons/fa";
+import {useNavigate, useLocation, useParams} from "react-router-dom";
+import {FaPen} from "react-icons/fa";
 import {KanbasState} from "../../../store";
 import * as client from "../client";
 import {
@@ -37,19 +37,6 @@ function QuizDetail() {
     .catch(err => {
       console.error("Failed to update quiz", err);
     });
-  };
-  const handleSave = () => {
-    if (pathname.includes("new")) {
-      client.createQuiz(quiz).then(() => {
-        dispatch(addQuiz(quiz));
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
-      });
-    } else {
-      client.updateQuiz(quiz).then(() => {
-        dispatch(updateQuiz(quiz));
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
-      });
-    }
   };
   const dispatch = useDispatch();
   const formatDate = (dateString: any) => {

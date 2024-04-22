@@ -4,7 +4,7 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {KanbasState} from "../../../../store";
 import * as client from "../../client";
-import {addQuiz, selectQuiz, setQuizzes, updateQuiz} from "../../reducer";
+import {selectQuiz, updateQuiz} from "../../reducer";
 
 function QuestionEditor() {
   const {courseId, quizId, questionId} = useParams();
@@ -19,66 +19,9 @@ function QuestionEditor() {
   const quiz = useSelector(
       (state: KanbasState) => state.quizReducer.quiz
   );
-  const handleTogglePublish = (quiz: any) => {
-    const updatedQuiz = {...quiz, published: !quiz.published};
-    client.updateQuiz(updatedQuiz)
-    .then(() => {
-      const updatedQuizzes = quizzes.map(q =>
-          q._id === quiz._id ? updatedQuiz : q
-      );
-      dispatch(setQuizzes(updatedQuizzes));
-    })
-    .catch(err => {
-      console.error("Failed to update quiz", err);
-    });
-  };
-  const handleSave = () => {
-    if (pathname.includes("new")) {
-      client.createQuiz(quiz).then(() => {
-        dispatch(addQuiz(quiz));
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
-      });
-    } else {
-      client.updateQuiz(quiz).then(() => {
-        dispatch(updateQuiz(quiz));
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
-      });
-    }
-  };
-  const handleSaveAndPublish = () => {
-    if (pathname.includes("new")) {
-      client.createQuiz(quiz).then(() => {
-        dispatch(addQuiz(quiz));
-        if (!quiz.published) {
-          handleTogglePublish(quiz);
-        }
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
-      });
-    } else {
-      client.updateQuiz(quiz).then(() => {
-        dispatch(updateQuiz(quiz));
-        if (!quiz.published) {
-          handleTogglePublish(quiz);
-        }
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
-      });
-    }
-  };
   const dispatch = useDispatch();
   const handleDeleteButton = (currQuestion: any) => {
     const isConfirmed = window.confirm('Are you sure you want to delete?');
-    if (isConfirmed) {
-      const updatedQuestions = quiz.questions.filter((question: {
-        _id: any;
-      }) => question._id !== currQuestion._id);
-      const updatedQuiz = {...quiz, questions: updatedQuestions};
-      client.updateQuiz(updatedQuiz).then(() => {
-        dispatch(updateQuiz(updatedQuiz));
-      });
-    }
-  };
-  const handleDeleteAnswerButton = (currQuestion: any) => {
-    const isConfirmed = window.confirm('Are you sure you want to delete this answer?');
     if (isConfirmed) {
       const updatedQuestions = quiz.questions.filter((question: {
         _id: any;

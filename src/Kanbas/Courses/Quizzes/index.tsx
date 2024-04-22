@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {
   FaBan,
-  FaCaretDown,
   FaCheckCircle,
   FaEdit,
   FaEllipsisV,
   FaPlus,
-  FaPlusCircle,
 } from "react-icons/fa";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {KanbasState} from "../../store";

@@ -1,10 +1,9 @@
-import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {KanbasState} from "../../../store";
 import * as client from "../client";
-import {addQuiz, selectQuiz, setQuizzes, updateQuiz} from "../reducer";
+import {selectQuiz, setQuizzes} from "../reducer";
 import React, {useEffect} from "react";
-import {FaCheckCircle, FaEdit, FaEllipsisV} from "react-icons/fa";
 
 function QuizPreview() {
   const {courseId, quizId} = useParams();
@@ -19,19 +18,6 @@ function QuizPreview() {
   const quiz = useSelector(
       (state: KanbasState) => state.quizReducer.quiz
   );
-  const handleTogglePublish = (quiz: any) => {
-    const updatedQuiz = {...quiz, published: !quiz.published};
-    client.updateQuiz(updatedQuiz)
-    .then(() => {
-      const updatedQuizzes = quizzes.map(q =>
-          q._id === quiz._id ? updatedQuiz : q
-      );
-      dispatch(setQuizzes(updatedQuizzes));
-    })
-    .catch(err => {
-      console.error("Failed to update quiz", err);
-    });
-  };
 
   function shuffle(array: any[]) {
     let currentIndex = array.length;
